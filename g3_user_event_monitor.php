@@ -295,7 +295,7 @@ $(function () {
             }
         });
 
-		$.getJSON("<?=$USER_EVENT_DATA_URL?>", function(data) {
+		$.getJSON("<?php echo $USER_EVENT_DATA_URL?>", function(data) {
 			for (d in data)
 			{
 				// The document suggests addSeries() should return the series; however,
