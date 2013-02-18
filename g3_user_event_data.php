@@ -8,7 +8,7 @@ class Action
 	function Action($name, $time)
 	{
 		$this->name = $name;
-		$this->time = $time;
+		$this->time = (float)$time;
 	}
 	public function __toString()
 	{
