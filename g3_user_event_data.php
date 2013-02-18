@@ -43,7 +43,7 @@ if ($handle)
 	while (!feof($handle))
 	{
 		$line = fgets($handle, 1024);
-		if (preg_match("/username=([^\|]+)\|desktopid=([^\|]+)\|userIP=([^\|]+)\|actionname=([^\|]+)\|actiontime=(\d+)/", $line, $matches))
+		if (preg_match("/username\s*=\s*([^\|]+?)\s*\|\s*desktopid\s*=\s*([^\|]+?)\s*\|\s*userIP\s*=\s*([^\|]+?)\s*\|\s*actionname\s*=\s*([^\|]+?)\s*\|\s*actiontime\s*=\s*(\d+)/", $line, $matches))
 		{
 			$username = $matches[1];
 			$desktopid = $matches[2];
