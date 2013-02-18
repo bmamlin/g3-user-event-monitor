@@ -3,6 +3,7 @@ include 'g3_user_event_config.php';
 ?>
 <html>
 <head>
+<title>G3 User Event Monitor</title>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
@@ -293,6 +294,13 @@ $(function () {
                     }
                 }
             }
+        });
+        
+        // Highcharts defaults to UTC; we wan't local times.
+        Highcharts.setOptions({
+          global: {
+            useUTC: false
+          }
         });
 
 		$.getJSON("<?php echo $USER_EVENT_DATA_URL?>", function(data) {
