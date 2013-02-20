@@ -20,15 +20,18 @@ class Interval
 	public $from;
 	public $to;
 	public $milliseconds;
-	function Interval($from, $to)
+	public $username;
+
+	function Interval($from, $to, $username)
 	{
 		$this->from = $from;
 		$this->to = $to;
 		$this->milliseconds = $to->time - $from->time;
+		$this->username = $username;
 	}
 	public function __toString()
 	{
-		return "$this->from, $this->to, $this->milliseconds";
+		return "$this->from, $this->to, $this->milliseconds, $this->username";
 	}
 }
 
@@ -55,7 +58,7 @@ if ($handle)
 
 			if (isset($lastAction[$key]))
 			{
-				$interval = new Interval($lastAction[$key], $action);
+				$interval = new Interval($lastAction[$key], $action, $username);
 				if (isset($data[$key]))
 				{
 					$data[$key][] = $interval;
